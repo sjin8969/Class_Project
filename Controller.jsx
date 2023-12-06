@@ -1,8 +1,7 @@
 import React,{useState} from "react";
 import "./css/Controller.css";
-// import Coom0 from "./Page/Coom0";
 import Board from "./Page/Board";
-import ViewItem from "./Page/ViewItem";
+import ViewList from "./Page/ViewList";
 import Order from "./Page/Order";
 import Help from "./Page/Help";
 import ExCharts from "./Page/ExCharts";
@@ -11,8 +10,11 @@ import Items from "./Items";
 
 
 
-function Controller({posts,onAddPost, onChangeNum,onlogin,CreateItem }) {
+function Controller({ onChangeNum,onlogin,CreateItem, item, setItem}) {
     const [openItem, setopenItem] = useState(false);
+    const [selected, setSelected] = useState("etc");
+    
+
 
     function itemClick(){
         if(onlogin===1){
@@ -28,11 +30,11 @@ function Controller({posts,onAddPost, onChangeNum,onlogin,CreateItem }) {
     }
     
     function Change2(){
-        onChangeNum(<Board posts={posts} onAddPost={onAddPost}/>);
+        onChangeNum(<Board/>);
     }
 
     function Change3(){
-        onChangeNum(<ViewItem/>);
+        onChangeNum(<ViewList item={item}></ViewList>);
     }
 
     function Change4(){
@@ -53,8 +55,9 @@ function Controller({posts,onAddPost, onChangeNum,onlogin,CreateItem }) {
             <button className="button" onClick={Change1}>Home</button>
             <button className="button" onClick={Change2}>게시판</button>
             <button className="button" onClick={itemClick}>재고관리</button>
-            {openItem && <Items CreateItem={CreateItem} setopenItem={setopenItem}></Items>}
-            <button className="button" onClick={Change3}>품목확인</button>
+            {openItem && <Items setItem={setItem} item={item} CreateItem={CreateItem} setopenItem={setopenItem} onChangeNum={onChangeNum}
+            setSelected={setSelected} selected={selected}></Items>}
+            <button className="button" onClick={Change3}>재고확인</button>
             <button className="button" onClick={Change4}>재고주문</button>
             <button className="button" onClick={Change5}>차트</button>
             <button className="button" onClick={Change6}>Help</button>

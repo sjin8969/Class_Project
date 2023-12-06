@@ -2,7 +2,7 @@ import React,{useState} from "react";
 import "./css/Header.css"
 import Loginpage from "./Loginpage";
 
-function Header({setId,setPassword,id,password,setOnlogin,onlogin}) {
+function Header({setId,setPassword,id,password,setOnlogin,onlogin,setItem}) {
   
   const [openlog,setOpenlog] = useState(false);
 
