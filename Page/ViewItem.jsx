@@ -1,12 +1,16 @@
 import React from "react";
 
-function ViewItem() {
-  return (
-    <div>
-      <h2>품목관리</h2>
-      <p>이곳은 품목관리 창입니다. 품목을 추가, 수정 또는 삭제할 수 있는 화면을 구성하세요.</p>
-    </div>
-  );
+function ViewItem({itemname,type,count,price,finalprice}){
+
+  return(
+    <tr>
+      <td>{type}</td>
+      <td>{itemname}</td>
+      <td>{count}</td>
+      <td>{price}원</td>
+      <td>{finalprice}원</td>
+    </tr>
+  )
 }
 
 export default ViewItem;

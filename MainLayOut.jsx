@@ -6,7 +6,7 @@ import 'react-calendar/dist/Calendar.css';
 import Graph from "./Graph";
 import Homecommunity from "./Homecommunity";
 
-function MainLayOut({posts,onAddPost,CreateItem,onlogin}){
+function MainLayOut({CreateItem,onlogin,item,setItem}){
     const [value, onChange] = useState(new Date());
     const [ChangeNum,setChangeNum] = useState(Homecommunity) /*초기값을 Coom0컴포넌트로 지정*/
 
@@ -18,12 +18,13 @@ function MainLayOut({posts,onAddPost,CreateItem,onlogin}){
         <div className="AllPage">
             <div className="LeftSelect">
                 <h4>메뉴</h4>
-                <Controller posts={posts} onAddPost={onAddPost} onlogin={onlogin} CreateItem={CreateItem} onChangeNum={handleNumChange} ></Controller>
+                <Controller setItem={setItem} item={item} onlogin={onlogin} CreateItem={CreateItem} onChangeNum={handleNumChange} ></Controller>
             </div>
             <div className="MainPage">
                 
                 <div className="CommunityView">
                     {ChangeNum}
+                    
                 </div>
                 <div className="Viewer">
                     <Calendar className="Calendar" onChange={onChange} value={value} />
