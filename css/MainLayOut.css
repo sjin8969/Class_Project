@@ -28,6 +28,7 @@
 .MainPage {
     display: flex;
     width: 1200px;
+    background-color: white;
 }
 .Viewer{
     margin-top: 35px;
